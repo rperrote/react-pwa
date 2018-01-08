@@ -6,59 +6,19 @@ import Link from "pawjs/src/components/link";
 const Header = (props) => {
   return (
     <div className="container">
-      <Link className="m-2" to="/">Logo</Link>
       <ul className="nav d-inline-flex">
         <li className="nav-item">
           <Link
             className={classNames("nav-link", {active: props.url === "/"})}
-            to="/"
+            to="/add"
           >
-            Home <span className="sr-only">(current)</span>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className={classNames("nav-link", {active: props.url === "/about"})}
-            to="/about"
-          >
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className={classNames("nav-link", {active: props.url === "/blog"})}
-            to="/blog"
-          >
-            Blog
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className={classNames("nav-link", {active: props.url === "/contact"})}
-            to="/contact"
-          >
-            Contact
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className={classNames("nav-link", {active: props.url === "/progressive-image-rendering"})}
-            to="/progressive-image-rendering"
-          >
-            Progressive Image Rendering
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className={classNames("nav-link", {active: props.url === "/counter"})}
-            to="/counter"
-          >
-            Redux Counter
+            <h1>+</h1>
           </Link>
         </li>
       </ul>
+      <h2 className="d-inline-flex">Tudus ({props.cant})</h2>
     </div>
   );
 };
 
-export default connect(state => { return {url: state.router.location.pathname}; })(Header);
+export default connect(state => { return {url: state.router.location.pathname, cant: state.todos.cant}; })(Header);

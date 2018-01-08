@@ -1,10 +1,12 @@
-import {trackPageView} from "pawjs/src/utils/analytics";
+import { trackPageView } from "pawjs/src/utils/analytics";
 
 import * as appReducers from "./app/reducers";
 
 export const reduxInitialState = {
-  counter: {
-    count: 5
+  todos: {
+    cant: 0,
+    list: [],
+    visibility: "SHOW_ALL"
   }
 };
 export const reduxReducers = appReducers;
